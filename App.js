@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, TextInput, Button, ActivityIndicator, FlatList, Alert } from "react-native";
+import {View, Text, TextInput, Button, ActivityIndicator} from 'react-native';
 import auth from '@react-native-firebase/auth';
 import database from '@react-native-firebase/database';
 import Users from './Users';
@@ -11,22 +11,7 @@ function App() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [ocupado, setOcupado] = useState(false);
-  const [dados,setDados] = useState([]);
-  const DATA = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-    },
-  ];
-
+  const [dados, setDados] = useState([]);
   // Handle user state changes
   function onAuthStateChanged(user) {
     setUser(user);
@@ -75,9 +60,7 @@ function App() {
   return (
     <View>
       <Text>Bem vindo {user.email}</Text>
-      <ActivityIndicator
-        animating={false}
-      ></ActivityIndicator>
+      <ActivityIndicator animating={false} />
       <Button
         title={'Logout'}
         onPress={() => {
@@ -102,7 +85,8 @@ function App() {
           });
           setDados(json);
           //console.log(json);
-        }}></Button>
+        }}
+      />
       <Button title={'Limpar'} onPress={() => setDados([])}></Button>
 
       <ActivityIndicator animating={ocupado}></ActivityIndicator>
